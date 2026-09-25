@@ -1,13 +1,22 @@
+using Microsoft.EntityFrameworkCore;
+using teremKezelo;
+using teremKezelo.DbCOntext;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+AddServices.AddServicesToContainer(builder.Services);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
 // Add Swagger/Swashbuckle
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    var connectionString = builder.Configuration.GetConnectionString("HomeString");
+    options.UseSqlServer(connectionString);
+});
 
 var app = builder.Build();
 

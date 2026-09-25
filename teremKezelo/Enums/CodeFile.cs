@@ -1,5 +1,5 @@
 ﻿
-namespace teremKezelo.Entities
+namespace teremKezelo.Enums
 {
     /// <summary>
     /// Foglalható erőforrás típusa a specifikáció szerint.
