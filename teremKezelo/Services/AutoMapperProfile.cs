@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using teremKezelo.DTOS.LocationDtos;
+using teremKezelo.DTOS.MaintanenceDtos;
 using teremKezelo.DTOS.ReservationDtos;
 using teremKezelo.DTOS.ResourceCategoryDtos;
 using teremKezelo.DTOS.ResourceDtos;
@@ -18,6 +19,7 @@ namespace teremKezelo.Services
             CreateMap<ResourceCategoryCreateDto, ResourceCategory>().ReverseMap();
             CreateMap<ReservationCreateDto, Reservation>().ReverseMap();
             CreateMap<UserCreateDto, ApplicationUser>().ReverseMap();
+            CreateMap<ManitanenceCreateDto, MaintenancePeriod>().ReverseMap();
         }
     }
 }

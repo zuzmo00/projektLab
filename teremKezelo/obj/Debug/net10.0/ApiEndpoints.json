@@ -111,6 +111,22 @@
     ]
   },
   {
+    "ContainingType": "teremKezelo.Controllers.MaintenenceController",
+    "Method": "Post",
+    "RelativePath": "api/Maintenence",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "maintenenceCreateDto",
+        "Type": "teremKezelo.DTOS.MaintanenceDtos.ManitanenceCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "teremKezelo.Controllers.ReservationController",
     "Method": "Post",
     "RelativePath": "api/Reservation",
@@ -205,6 +221,22 @@
       {
         "Name": "id",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "teremKezelo.Controllers.UserController",
+    "Method": "CreateUser",
+    "RelativePath": "api/User",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userDto",
+        "Type": "teremKezelo.DTOS.UserDtos.UserCreateDto",
         "IsRequired": true
       }
     ],

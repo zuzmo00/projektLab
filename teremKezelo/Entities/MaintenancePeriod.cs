@@ -14,6 +14,6 @@
 
         public DateTime CreatedAt { get; set; }=DateTime.UtcNow;
         public string CreatedByUserId { get; set; }
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; }=true;
     }
 }
