@@ -12,8 +12,8 @@ using teremKezelo.DbCOntext;
 namespace teremKezelo.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260925104939_DefaultResourceStatus")]
-    partial class DefaultResourceStatus
+    [Migration("20260926105803_Initialize")]
+    partial class Initialize
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,8 +27,11 @@ namespace teremKezelo.Migrations
 
             modelBuilder.Entity("teremKezelo.Entities.ApplicationUser", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -157,9 +160,8 @@ namespace teremKezelo.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

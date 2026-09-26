@@ -43,5 +43,18 @@ namespace teremKezelo.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
+        [HttpGet]
+        public async Task<IActionResult> GetAll([FromQuery] ResourceFilterDto filterDto)
+        {
+            try
+            {
+                var resources = await _resourceService.GetAllResourcesAsync(filterDto);
+                return Ok(resources);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
     }
 }

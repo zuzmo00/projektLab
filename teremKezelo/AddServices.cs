@@ -10,6 +10,8 @@ namespace teremKezelo
             services.AddScoped<ILocationService, LocationService>();
             services.AddAutoMapper(config => config.AddProfile<AutoMapperProfile>());
             services.AddScoped<IResourceService, ResourceService>();
+            services.AddScoped<IResourceCategoryService, ResourceCategoryService>();
+            services.AddScoped<IReservationService, ReservationService>();
         }
     }
 }

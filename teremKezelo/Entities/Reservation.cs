@@ -9,7 +9,7 @@ namespace teremKezelo.Entities
         public int ResourceId { get; set; }
         public Resource Resource { get; set; }
 
-        public string UserId { get; set; }
+        public int UserId { get; set; }
         public ApplicationUser User { get; set; }
 
         public DateTime StartTime { get; set; }

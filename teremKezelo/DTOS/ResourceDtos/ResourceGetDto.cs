@@ -1,10 +1,10 @@
-﻿using teremKezelo.Entities;
-using teremKezelo.Enums;
+﻿using teremKezelo.Enums;
 
 namespace teremKezelo.DTOS.ResourceDtos
 {
-    public class ResourceCreateDto
+    public class ResourceGetDto
     {
+        public int Id { get; set; }
         public string Name { get; set; } = null!;
         public string? Description { get; set; }
         public ResourceType ResourceType { get; set; }
@@ -21,7 +21,5 @@ namespace teremKezelo.DTOS.ResourceDtos
         public bool? IsPortable { get; set; }
 
         public bool IsActive { get; set; } = true;
-
-
     }
 }
