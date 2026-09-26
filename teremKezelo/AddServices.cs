@@ -13,6 +13,7 @@ namespace teremKezelo
             services.AddScoped<IResourceCategoryService, ResourceCategoryService>();
             services.AddScoped<IReservationService, ReservationService>();
             services.AddScoped<IMaintanenceService, MaintanenceService>();
+            services.AddScoped<IUserService, UserService>();
         }
     }
 }

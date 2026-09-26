@@ -56,5 +56,18 @@ namespace teremKezelo.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
+        [HttpGet("{id}/advanced")]
+        public async Task<IActionResult> GetAdvanced(int id)
+        {
+            try
+            {
+                var resource = await _resourceService.GetResourceByIdAdvancedAsync(id);
+                return Ok(resource);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
     }
 }

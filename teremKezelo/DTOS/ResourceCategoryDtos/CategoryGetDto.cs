@@ -1,0 +1,8 @@
+﻿namespace teremKezelo.DTOS.ResourceCategoryDtos
+{
+    public class CategoryGetDto
+    {
+        public string Name { get; set; } = null!;
+        public string? Description { get; set; }
+    }
+}

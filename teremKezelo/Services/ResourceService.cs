@@ -9,6 +9,7 @@ namespace teremKezelo.Services
     {
         public Task<List<ResourceGetDto>> GetAllResourcesAsync(ResourceFilterDto filterDto  );
         public Task<ResourceCreateDto> GetResourceByIdAsync(int id);
+        public Task<ResourceGetAdvancedDto> GetResourceByIdAdvancedAsync(int id);
         public Task<ResourceCreateDto> CreateResourceAsync(ResourceCreateDto resource);
     }
     public class ResourceService : IResourceService
@@ -61,6 +62,21 @@ namespace teremKezelo.Services
             }
             var entities = await query.ToListAsync();
             return _mapper.Map<List<ResourceGetDto>>(entities);
+        }
+
+        public async Task<ResourceGetAdvancedDto> GetResourceByIdAdvancedAsync(int id)
+        {
+            var res= await _context.Resources.Where(r => r.Id == id)
+                .Include(r => r.Category)
+                .Include(r => r.Location)
+                .Include(r => r.Reservations)
+                .Include(r => r.MaintenancePeriods)
+                .FirstOrDefaultAsync();
+            if(res==null)
+            {
+                throw new Exception("Resource not found");
+            }
+            return _mapper.Map<ResourceGetAdvancedDto>(res);
         }
 
         public async Task<ResourceCreateDto> GetResourceByIdAsync(int id)

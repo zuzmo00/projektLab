@@ -21,6 +21,8 @@ namespace teremKezelo.Services
         public async Task<MaintenancePeriod> CreateMaintanenceAsync(ManitanenceCreateDto maintanence)
         {
             var entity = _mapper.Map<MaintenancePeriod>(maintanence);
+            await _context.MaintenancePeriods.AddAsync(entity);
+            await _context.SaveChangesAsync();
             return entity;
         }
     }

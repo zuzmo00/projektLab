@@ -20,6 +20,11 @@ namespace teremKezelo.Services
             CreateMap<ReservationCreateDto, Reservation>().ReverseMap();
             CreateMap<UserCreateDto, ApplicationUser>().ReverseMap();
             CreateMap<ManitanenceCreateDto, MaintenancePeriod>().ReverseMap();
+            CreateMap<ResourceGetAdvancedDto, Resource>().ReverseMap();
+            CreateMap<Location, LocatonGetDto>();
+            CreateMap<ResourceCategory, CategoryGetDto>();
+            CreateMap<Reservation, ReservationGetDto>();
+            CreateMap<MaintenancePeriod, MaintanenceGetDto>();
         }
     }
 }

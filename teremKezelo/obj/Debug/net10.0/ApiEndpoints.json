@@ -227,6 +227,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "teremKezelo.Controllers.ResourcesController",
+    "Method": "GetAdvanced",
+    "RelativePath": "api/Resources/{id}/advanced",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "teremKezelo.Controllers.UserController",
     "Method": "CreateUser",
     "RelativePath": "api/User",
