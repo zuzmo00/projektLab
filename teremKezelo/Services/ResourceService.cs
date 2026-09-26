@@ -2,11 +2,13 @@
 using teremKezelo.DbCOntext;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using teremKezelo.Entities;
 
 namespace teremKezelo.Services
 {
     public interface IResourceService
     {
+        public Task<Resource> GetResourceUpdateDtoAsync(ResourceUpdateDto resourceUpdateDto, int id);
         public Task<List<ResourceGetDto>> GetAllResourcesAsync(ResourceFilterDto filterDto  );
         public Task<ResourceCreateDto> GetResourceByIdAsync(int id);
         public Task<ResourceGetAdvancedDto> GetResourceByIdAdvancedAsync(int id);
@@ -66,12 +68,13 @@ namespace teremKezelo.Services
 
         public async Task<ResourceGetAdvancedDto> GetResourceByIdAdvancedAsync(int id)
         {
-            var res= await _context.Resources.Where(r => r.Id == id)
+            var res = await _context.Resources
                 .Include(r => r.Category)
                 .Include(r => r.Location)
                 .Include(r => r.Reservations)
                 .Include(r => r.MaintenancePeriods)
-                .FirstOrDefaultAsync();
+                .FirstOrDefaultAsync(r=>r.Id==id);
+                
             if(res==null)
             {
                 throw new Exception("Resource not found");
@@ -87,6 +90,18 @@ namespace teremKezelo.Services
                 throw new Exception("Resource not found");
             }
             return _mapper.Map<ResourceCreateDto>(entity);
+        }
+
+        public async Task<Resource> GetResourceUpdateDtoAsync(ResourceUpdateDto resourceUpdateDto, int id)
+        {
+            var res= await _context.Resources.FindAsync(id);
+            if (res == null)
+            {
+                throw new Exception("Resource not found");
+            }
+            _mapper.Map(resourceUpdateDto,res);
+            await _context.SaveChangesAsync();
+            return res;
         }
     }
 }

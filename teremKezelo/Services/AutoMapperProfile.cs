@@ -25,6 +25,8 @@ namespace teremKezelo.Services
             CreateMap<ResourceCategory, CategoryGetDto>();
             CreateMap<Reservation, ReservationGetDto>();
             CreateMap<MaintenancePeriod, MaintanenceGetDto>();
+            CreateMap<ResourceUpdateDto, Resource>().ReverseMap()
+                .ForAllMembers(opt => opt.Condition((src, dest, srcMember) => srcMember != null));
         }
     }
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("teremKezelo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ef0c7fae01b72e23b632e56d88e0acd747197bb0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+043e9282dc4bb82c7d1d64e5f3567aa1d896f9d3")]
 [assembly: System.Reflection.AssemblyProductAttribute("teremKezelo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("teremKezelo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
